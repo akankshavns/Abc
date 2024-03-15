@@ -2,25 +2,39 @@ import java.util.*;
 // import java.math.*;
 public class ArmstrongNumber {
     public static void main(String []args){
-        int num,  result = 0,remainder, i=0 ,add= 0;
+
+        int number, result = 0, remainder, i=0;
+
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number for checking: ");
-        num = sc.nextInt();
-        while (num!=0) {
-            num = num /10;
-            i++;   
-        }
+        number = sc.nextInt();
+        sc.close();
+        
+        int num = number;
+
+        // while (number!=0) {
+        //     number = number / 10;
+        //     i++;   
+        // }
+
+        String NumberInString = ("" + number);
+
+        i = NumberInString.length();
       
-        while (num != 0)
-        {
-            remainder = num % 10;
-            result += Math.pow(remainder, 3);
-            num /= 10;
+        // while (number != 0)
+        // {
+        //     remainder = number % 10;
+        //     result += Math.pow(remainder, i);
+        //     number /= 10;
+        // }
+
+        for (int count=0; count < i; count++) {
+            result += Math.pow(Integer.parseInt(String.valueOf(NumberInString.charAt(count))), i);
         }
-        System.out.println("addition = " + result);
 
+        if (number == result) System.out.println("Given number" + num + " is an ArmstrongNumber");
+        else System.out.println("Sorry!! Try Again!!");
 
-        // System.out.println(i);
     }
     
 }
